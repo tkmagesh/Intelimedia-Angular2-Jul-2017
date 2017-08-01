@@ -7,10 +7,22 @@ import { Component } from '@angular/core';
 })
 export class CalculatorOneComponent{
 	result : number = 0;
+	n1 : number = 0;
+	n2 : number = 0;
 
 	onAddClick(value1, value2){
-		let n1 : number = parseInt(value1, 10),
-			n2 : number = parseInt(value2, 10);
-		this.result = n1 + n2;
+		this.result = this.n1 + this.n2;
+	}
+
+	onSubtractClick(value1, value2){
+		this.result = this.n1 - this.n2;
+	}
+
+	onMultiplyClick(value1, value2){
+		this.result = this.n1 * this.n2;
+	}
+
+	onDivideClick(value1, value2){
+		this.result = this.n1 / this.n2;
 	}
 }

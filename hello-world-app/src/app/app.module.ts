@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
@@ -14,7 +15,8 @@ import { CalculatorOneComponent } from './calculator/calculatorOne.component';
   ],
   //Module level import
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   //Non UI Entites (Services)
   providers: [],

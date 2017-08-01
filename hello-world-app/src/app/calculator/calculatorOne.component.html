@@ -1,7 +1,11 @@
 <h3>Calculator-1</h3>
 <div>
-	<input type="number" #txtNumber1>
-	<input type="number" #txtNumber2>
-	<input type="button" value="Add" (click)="onAddClick(txtNumber1.value, txtNumber2.value)">
+	<input type="number" [(ngModel)]="n1">
+	<input type="number" [(ngModel)]="n2">
+	
+	<input type="button" value="Add" (click)="onAddClick()">
+	<input type="button" value="Subtract" (click)="onSubtractClick()">
+	<input type="button" value="Multiply" (click)="onMultiplyClick()">
+	<input type="button" value="Divide" (click)="onDivideClick()">
 	<div class="result">{{result}}</div>
 </div>
