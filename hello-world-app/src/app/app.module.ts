@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
+import { CalculatorOneComponent } from './calculator/calculatorOne.component';
 
 @NgModule({
 	//UI Entities (Components, Directives, Pipes)
   declarations: [
     AppComponent,
-    GreeterComponent
+    GreeterComponent,
+    CalculatorOneComponent
   ],
   //Module level import
   imports: [
