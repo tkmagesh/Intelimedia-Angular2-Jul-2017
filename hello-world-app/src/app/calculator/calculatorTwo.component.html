@@ -9,5 +9,6 @@
 	</select>
 	<input type="number" [(ngModel)] = "model.number2">
 	<input type="button" value="Calculate" (click)="model[operator]()">
-	<div class="result">{{model.result}}</div>
+	<!-- <div class="result">{{model.result}}</div> -->
+	<app-calculator-result [result]="model.result"></app-calculator-result>
 </div>

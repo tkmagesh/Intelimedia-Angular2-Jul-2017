@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
 import { CalculatorOneComponent } from './calculator/calculatorOne.component';
 import { CalculatorTwoComponent } from './calculator/calculatorTwo.component';
+import { CalculatorResultComponent } from './calculator/calculatorResult.component';
 
 @NgModule({
 	//UI Entities (Components, Directives, Pipes)
@@ -13,7 +14,8 @@ import { CalculatorTwoComponent } from './calculator/calculatorTwo.component';
     AppComponent,
     GreeterComponent,
     CalculatorOneComponent,
-    CalculatorTwoComponent
+    CalculatorTwoComponent,
+    CalculatorResultComponent
   ],
   //Module level import
   imports: [
