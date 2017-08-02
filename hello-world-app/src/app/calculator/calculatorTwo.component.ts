@@ -16,7 +16,7 @@ export class CalculatorTwoComponent{
 	}
 
 	calculate(){
-		switch (this.operator) {
+		/*switch (this.operator) {
 			case "add":
 				this.model.add();
 				break;
@@ -30,6 +30,7 @@ export class CalculatorTwoComponent{
 				this.model.divide();
 				break;
 			
-		}
+		}*/
+		this.model[this.operator]();
 	}
 }
