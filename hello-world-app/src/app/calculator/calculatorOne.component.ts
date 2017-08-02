@@ -15,19 +15,4 @@ export class CalculatorOneComponent{
 		this.model = new CalculatorModel();
 	}
 
-	onAddClick(){
-		this.model.add();
-	}
-
-	onSubtractClick(){
-		this.model.subtract();
-	}
-
-	onMultiplyClick(){
-		this.model.multiply();
-	}
-
-	onDivideClick(){
-		this.model.divide();
-	}
 }
