@@ -1,13 +1,13 @@
 <h3>Calculator - 2</h3>
 <div>
-	<input type="number" >
-	<select >
+	<input type="number" [(ngModel)] = "model.number1">
+	<select [(ngModel)]="operator">
 		<option value="add">Add</option>
 		<option value="subtract">Subtract</option>
 		<option value="multiply">Multiply</option>
 		<option value="divide">Divide</option>
 	</select>
-	<input type="number" >
-	<input type="button" value="Calculate">
-	<div class="result">[Result]</div>
+	<input type="number" [(ngModel)] = "model.number2">
+	<input type="button" value="Calculate" (click)="calculate()">
+	<div class="result">{{model.result}}</div>
 </div>
