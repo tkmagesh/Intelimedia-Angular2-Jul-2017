@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CalculatorModel }  from './CalculatorModel';
 
 @Component({
 	selector : 'app-calculator-one',
@@ -6,23 +7,27 @@ import { Component } from '@angular/core';
 	styleUrls : ['calculator.style.css']
 })
 export class CalculatorOneComponent{
-	result : number = 0;
-	n1 : number = 0;
-	n2 : number = 0;
+	
 
-	onAddClick(value1, value2){
-		this.result = this.n1 + this.n2;
+	model : CalculatorModel;
+
+	constructor(){
+		this.model = new CalculatorModel();
 	}
 
-	onSubtractClick(value1, value2){
-		this.result = this.n1 - this.n2;
+	onAddClick(){
+		this.model.add();
 	}
 
-	onMultiplyClick(value1, value2){
-		this.result = this.n1 * this.n2;
+	onSubtractClick(){
+		this.model.subtract();
 	}
 
-	onDivideClick(value1, value2){
-		this.result = this.n1 / this.n2;
+	onMultiplyClick(){
+		this.model.multiply();
+	}
+
+	onDivideClick(){
+		this.model.divide();
 	}
 }
