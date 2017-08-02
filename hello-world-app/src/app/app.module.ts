@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
 import { CalculatorOneComponent } from './calculator/calculatorOne.component';
+import { CalculatorTwoComponent } from './calculator/calculatorTwo.component';
 
 @NgModule({
 	//UI Entities (Components, Directives, Pipes)
   declarations: [
     AppComponent,
     GreeterComponent,
-    CalculatorOneComponent
+    CalculatorOneComponent,
+    CalculatorTwoComponent
   ],
   //Module level import
   imports: [
