@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 //Components
 import { AppComponent } from './app.component';
@@ -22,7 +23,8 @@ import { BugOperationsService } from './bugTracker/services/bugOperations.servic
     SortPipe
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [BugOperationsService],
   bootstrap: [AppComponent]

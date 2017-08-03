@@ -1,14 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+
+
 @Pipe({
 	name : 'sort'
 })
-
-interface IComparer{
-	(item1 : any, item2 : any) : number;
-}
-
-
 export class SortPipe implements PipeTransform{
 
 	private getComparerFor(attrName : string) : IComparer {
@@ -21,4 +17,10 @@ export class SortPipe implements PipeTransform{
 	transform(list : any[], attrName : string) : any[] {
 		return list.sort(this.getComparerFor(attrName));
 	}
+}
+
+
+
+interface IComparer{
+	(item1 : any, item2 : any) : number;
 }

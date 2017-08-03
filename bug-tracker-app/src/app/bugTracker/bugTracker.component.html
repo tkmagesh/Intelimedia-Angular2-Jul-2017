@@ -7,7 +7,7 @@
 </section>
 <section class="sort">
 	<label for="">Order By :</label>
-	<select>
+	<select [(ngModel)]="bugSortBy">
 		<option value="id">[Default]</option>
 		<option value="name">Name</option>
 		<option value="isClosed">Status</option>
@@ -22,7 +22,7 @@
 </section>
 <section class="list">
 	<ol>
-		<li *ngFor="let bug of bugs">
+		<li *ngFor="let bug of ( bugs | sort:bugSortBy )">
 			<span class="bugname" 
 				(click)="onBugNameClick(bug)"
 				[ngClass]="{closed : bug.isClosed}"

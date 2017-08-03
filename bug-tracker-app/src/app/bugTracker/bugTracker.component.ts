@@ -10,6 +10,8 @@ import { BugOperationsService } from './services/bugOperations.service';
 export class BugTrackerComponent{
 	bugs : IBug[] = [];
 	
+	bugSortBy : string = 'id';
+	
 	constructor(private bugOperations : BugOperationsService){
 		this.bugs.push(this.bugOperations.createNew('Server communication failure'));
 		this.bugs.push(this.bugOperations.createNew('Application not responding'));
