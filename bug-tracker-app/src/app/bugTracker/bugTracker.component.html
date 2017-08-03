@@ -7,9 +7,10 @@
 </section>
 <section class="sort">
 	<label for="">Order By :</label>
-	<select name="" id="">
-		<option value=""></option>
-		<option value=""></option>
+	<select>
+		<option value="id">[Default]</option>
+		<option value="name">Name</option>
+		<option value="isClosed">Status</option>
 	</select>
 	<label for="">Descending ? :</label>
 	<input type="checkbox" name="" id="">
@@ -25,7 +26,7 @@
 			<span class="bugname" 
 				(click)="onBugNameClick(bug)"
 				[ngClass]="{closed : bug.isClosed}"
-			>{{bug.name | trimText}}</span>
+			>{{bug.name | trimText}} <i>[{{bug.id}}]</i></span>
 			<div class="datetime">[Created At]</div>
 		</li>
 	</ol>
