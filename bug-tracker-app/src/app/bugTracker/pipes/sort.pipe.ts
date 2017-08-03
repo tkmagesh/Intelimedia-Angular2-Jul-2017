@@ -14,8 +14,18 @@ export class SortPipe implements PipeTransform{
 			return 0;
 	    }
 	}
-	transform(list : any[], attrName : string) : any[] {
-		return list.sort(this.getComparerFor(attrName));
+
+	private getDescendingComparerFor(comparer : IComparer): IComparer{
+		return function(item1 : any, item2 : any) : number {
+			return comparer(item1, item2) * -1;
+	    }
+	}
+
+	transform(list : any[], attrName : string, isDescending : boolean = false) : any[] {
+		let comparer = this.getComparerFor(attrName);
+		if (isDescending)
+			comparer = this.getDescendingComparerFor(comparer);
+		return list.sort(comparer);
 	}
 }
 

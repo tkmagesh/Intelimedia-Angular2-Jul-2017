@@ -11,6 +11,7 @@ export class BugTrackerComponent{
 	bugs : IBug[] = [];
 	
 	bugSortBy : string = 'id';
+	isDescending : boolean = false;
 	
 	constructor(private bugOperations : BugOperationsService){
 		this.bugs.push(this.bugOperations.createNew('Server communication failure'));
