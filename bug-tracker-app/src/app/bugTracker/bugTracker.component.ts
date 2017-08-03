@@ -9,11 +9,12 @@ import { BugOperationsService } from './services/bugOperations.service';
 })
 export class BugTrackerComponent{
 	bugs : IBug[] = [];
-	bugOperations : BugOperationsService ;
+	//bugOperations : BugOperationsService ;
 
-	constructor(){
-		this.bugOperations = new BugOperationsService();
+	constructor(private bugOperations : BugOperationsService){
+		//this.bugOperations = bugOperations;
 	}
+
 	onCreateNewClick(bugName : string){
 		let newBug : IBug = this.bugOperations.createNew(bugName);
 		this.bugs.push(newBug);
