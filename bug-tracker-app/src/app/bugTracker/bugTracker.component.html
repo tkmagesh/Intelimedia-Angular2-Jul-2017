@@ -1,10 +1,7 @@
 <h1>Bug Tracker</h1>
 <hr>
-<section class="stats">
-	<span class="closed">{{bugs | closedCount}}</span>
-	<span> / </span>
-	<span>{{bugs.length}}</span>
-</section>
+<bug-stats [data]="bugs"></bug-stats>
+
 <section class="sort">
 	<label for="">Order By :</label>
 	<select [(ngModel)]="bugSortBy">
