@@ -8,6 +8,7 @@ import { UtilsModule } from './utils/utils.module';
 import { AppComponent } from './app.component';
 import { BugTrackerComponent } from './bugTracker/bugTracker.component';
 import { BugStatsComponent } from './bugTracker/bugStats/bugStats.component';
+import { BugEditComponent } from './bugTracker/bugEdit/bugEdit.component';
 
 //Pipes
 import { ClosedCountPipe } from './bugTracker/pipes/closedCount.pipe';
@@ -23,7 +24,8 @@ import { BugStorageService } from './bugTracker/services/bugStorage.service';
     AppComponent,
     BugTrackerComponent,
     ClosedCountPipe,
-    BugStatsComponent
+    BugStatsComponent,
+    BugEditComponent
   ],
   imports: [
     BrowserModule,

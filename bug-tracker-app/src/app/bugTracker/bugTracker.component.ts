@@ -12,15 +12,12 @@ export class BugTrackerComponent{
 	
 	bugSortBy : string = 'id';
 	isDescending : boolean = false;
-	newBugName : string = '';
-
+	
 	constructor(private bugStorage : BugStorageService){
 		this.bugs = this.bugStorage.getAll();
 	}
 
-	onCreateNewClick(){
-		let newBug : IBug = this.bugStorage.addNew(this.newBugName);
-		//this.bugs.push(newBug);
+	onBugCreated(newBug : IBug){
 		this.bugs = [...this.bugs, newBug];
 	}
 
