@@ -1,11 +1,10 @@
 import { IBug } from '../models/IBug';
 
 export class BugOperationsService{
-	private currentBugId : number = 0;
-
-	createNew(bugName : string) : IBug {
+	
+	createNew(id : number, bugName : string) : IBug {
 		return {
-			id : ++this.currentBugId,
+			id : id,
 			name : bugName,
 			isClosed : false
 		}

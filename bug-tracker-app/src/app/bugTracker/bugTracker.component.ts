@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IBug } from './models/IBug';
-import { BugOperationsService } from './services/bugOperations.service';
+import { BugStorageService } from './services/bugStorage.service';
 
 @Component({
 	selector : 'bug-tracker',
@@ -14,29 +14,28 @@ export class BugTrackerComponent{
 	isDescending : boolean = false;
 	newBugName : string = '';
 
-	constructor(private bugOperations : BugOperationsService){
-		this.bugs.push(this.bugOperations.createNew('Server communication failure'));
-		this.bugs.push(this.bugOperations.createNew('Application not responding'));
-		this.bugs.push(this.bugOperations.createNew('User actions not recognized'));
-		this.bugs.push(this.bugOperations.createNew('Data integrity checks failed'));
+	constructor(private bugStorage : BugStorageService){
+		this.bugs = this.bugStorage.getAll();
 	}
 
 	onCreateNewClick(){
-		let newBug : IBug = this.bugOperations.createNew(this.newBugName);
+		let newBug : IBug = this.bugStorage.addNew(this.newBugName);
 		//this.bugs.push(newBug);
 		this.bugs = [...this.bugs, newBug];
 	}
 
 	onBugNameClick(bugToToggle : IBug){
 		//bug.isClosed = !bug.isClosed;
-		let toggledBug = this.bugOperations.toggle(bugToToggle);
+		let toggledBug = this.bugStorage.toggle(bugToToggle);
 		this.bugs = this.bugs.map(bug => bug.id === bugToToggle.id ? toggledBug : bug);
 	}
 
 	onRemoveClosedClick(){
 		for(let index=this.bugs.length-1; index >=0; index--){
-			if (this.bugs[index].isClosed)
+			if (this.bugs[index].isClosed){
+				this.bugStorage.remove(this.bugs[index]);
 				this.bugs.splice(index, 1);
+			}
 		}
 	}
 

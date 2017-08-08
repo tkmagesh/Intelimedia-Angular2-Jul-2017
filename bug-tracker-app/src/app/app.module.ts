@@ -13,6 +13,7 @@ import { ClosedCountPipe } from './bugTracker/pipes/closedCount.pipe';
 
 //Services
 import { BugOperationsService } from './bugTracker/services/bugOperations.service';
+import { BugStorageService } from './bugTracker/services/bugStorage.service';
 
 
 
@@ -28,7 +29,7 @@ import { BugOperationsService } from './bugTracker/services/bugOperations.servic
     BrowserModule,
     FormsModule
   ],
-  providers: [BugOperationsService],
+  providers: [BugOperationsService, BugStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
