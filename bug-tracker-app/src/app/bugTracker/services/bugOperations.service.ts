@@ -6,7 +6,8 @@ export class BugOperationsService{
 		return {
 			id : id,
 			name : bugName,
-			isClosed : false
+			isClosed : false,
+			createdAt : new Date()
 		}
 	}
 

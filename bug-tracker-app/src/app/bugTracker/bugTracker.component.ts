@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IBug } from './models/IBug';
 import { BugStorageService } from './services/bugStorage.service';
 
+
+
 @Component({
 	selector : 'bug-tracker',
 	templateUrl : 'bugTracker.component.html',
