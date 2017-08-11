@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="rx.all.js"></script>
+	<script>
+		window.addEventListener('DOMContentLoaded', init);
+		function init(){
+			Rx.Observable
+				.fromEvent(document, 'click')
+				.filter(function(evt){ return evt.clientX > (window.innerWidth / 2)})
+				.take(10)
+				.subscribe(function(evt){ console.log(evt.clientX, event.clientY)});
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
+
+keyup
+	currentTime
+	setTimeout(function(){
+	
+	}, 2000)

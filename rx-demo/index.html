@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script>
+		window.addEventListener('DOMContentLoaded', init);
+		function init(){
+			document.addEventListener('click', onDocumentClick);
+		}
+		var clickCount = 0;
+		function onDocumentClick(evt){
+			if (clickCount >= 10){
+				document.removeEventListener('click', onDocumentClick);
+				return;
+			}
+			if (evt.clientX > (window.innerWidth / 2)){
+				console.log(evt.clientX, evt.clientY)
+				++clickCount;
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

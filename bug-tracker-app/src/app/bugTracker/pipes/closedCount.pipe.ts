@@ -7,7 +7,6 @@ import { IBug } from '../models/IBug';
 })
 export class ClosedCountPipe implements PipeTransform{
 	transform(list : IBug[]) : number{
-		console.log('closedCount.transform triggered');
 		return list.reduce((prevResult, bug) => bug.isClosed ? ++prevResult : prevResult, 0);
 	}
 }

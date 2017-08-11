@@ -1,15 +1,9 @@
 {
   "bugs": [
     {
-      "id": 4,
-      "name": "Promises are not promising",
-      "isClosed": false,
-      "createdAt": "2017-06-18T09:54:33.044Z"
-    },
-    {
       "id": 6,
       "name": "Data integrity checks failed",
-      "isClosed": true,
+      "isClosed": false,
       "createdAt": "2017-07-28T06:04:49.597Z"
     },
     {

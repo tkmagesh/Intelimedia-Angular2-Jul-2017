@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
+
 import { IBug } from '../models/IBug';
 import { BugOperationsService } from './bugOperations.service';
 
@@ -6,36 +10,35 @@ import { BugOperationsService } from './bugOperations.service';
 export class BugServerService{
 	private baseUrl = 'http://localhost:3000/bugs';
 
-	constructor(private bugOperations : BugOperationsService){
+	constructor(private bugOperations : BugOperationsService, private http : Http){
 
 	}
-	getAll() : Promise<any>{
-		return fetch(this.baseUrl)
-			.then(response => response.json())
+	getAll() : Observable<IBug[]>{
+		return this.http
+			.get(this.baseUrl)
+			.map(response => response.json())
+
 	}
-	addNew(newBugData : IBug) : Promise<any>{
+
+	addNew(newBugData : IBug) : Observable<IBug>{
 		
-		return fetch(this.baseUrl, {
-			method : 'POST',
-			body : JSON.stringify(newBugData),
-			headers : {
-				'content-type' : 'application/json'
-			}
-		}).then(response => response.json());
+		return this.http
+			.post(this.baseUrl, newBugData)
+			.map(response => response.json());
 	}
-	toggle(bug : IBug) : Promise<any>{
+
+	toggle(bug : IBug) : Observable<IBug>{
 		let toggledBug = this.bugOperations.toggle(bug);
-		return fetch(`${this.baseUrl}/${bug.id}`, {
-			method : 'PUT',
-			body : JSON.stringify(toggledBug),
-			headers : {
-				'content-type' : 'application/json'
-			}
-		}).then(response => response.json());
+
+		return this.http
+			.put(`${this.baseUrl}/${bug.id}`, toggledBug)
+			.map(response => response.json());
+		
 	}
-	remove(bug : IBug) : Promise<any>{
-		return fetch(`${this.baseUrl}/${bug.id}`, {
-			method : 'DELETE',
-		}).then(response => response.json());
+
+	remove(bug : IBug) : Observable<any>{
+		return this.http
+			.delete(`${this.baseUrl}/${bug.id}`)
+			.map(response => response.json())
 	}
 }

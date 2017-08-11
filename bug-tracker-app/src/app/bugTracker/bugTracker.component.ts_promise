@@ -17,20 +17,20 @@ export class BugTrackerComponent{
 	
 	constructor(private bugServer : BugServerService){
 		this.bugServer.getAll()
-			.subscribe(bugs => this.bugs = bugs);
+			.then(bugs => this.bugs = bugs);
 	}
 
 	onBugCreated(newBugData : IBug){
 		this.bugServer
 			.addNew(newBugData)
-			.subscribe(newBug => this.bugs = [...this.bugs, newBug]);
+			.then(newBug => this.bugs = [...this.bugs, newBug]);
 	}
 
 	onBugNameClick(bugToToggle : IBug){
 		//bug.isClosed = !bug.isClosed;
 		this.bugServer
 			.toggle(bugToToggle)
-			.subscribe(toggledBug => 
+			.then(toggledBug => 
 				this.bugs = this.bugs.map(bug => bug.id === bugToToggle.id ? toggledBug : bug));
 		
 	}
@@ -38,7 +38,7 @@ export class BugTrackerComponent{
 	onRemoveClosedClick(){
 		for(let index=this.bugs.length-1; index >=0; index--){
 			if (this.bugs[index].isClosed){
-				this.bugServer.remove(this.bugs[index]).subscribe(_ => {});
+				this.bugServer.remove(this.bugs[index]);
 				this.bugs.splice(index, 1);
 			}
 		}
