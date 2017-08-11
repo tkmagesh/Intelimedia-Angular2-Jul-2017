@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IBug } from './models/IBug';
 import { BugStorageService } from './services/bugStorage.service';
 
@@ -9,17 +9,21 @@ import { BugServerService } from './services/bugServer.service';
 	templateUrl : 'bugTracker.component.html',
 	styleUrls : ['bugTracker.component.css']
 })
-export class BugTrackerComponent{
+export class BugTrackerComponent implements OnInit{
 	bugs : IBug[] = [];
 	
 	bugSortBy : string = 'id';
 	isDescending : boolean = false;
 	
 	constructor(private bugServer : BugServerService){
-		this.bugServer.getAll()
-			.subscribe(bugs => this.bugs = bugs);
+		
 	}
 
+	async ngOnInit(){
+		/*this.bugServer.getAll()
+			.then(bugs => this.bugs = bugs);*/
+		this.bugs = await this.bugServer.getAll();
+	}
 	onBugCreated(newBugData : IBug){
 		this.bugServer
 			.addNew(newBugData)
