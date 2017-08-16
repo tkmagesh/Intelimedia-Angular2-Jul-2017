@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { BugTrackerComponent } from './bugTracker/bugTracker.component';
 import { BugStatsComponent } from './bugTracker/bugStats/bugStats.component';
 import { BugEditComponent } from './bugTracker/bugEdit/bugEdit.component';
+import { GreeterComponent } from './greeter/greeter.component';
 
 //Pipes
 import { ClosedCountPipe } from './bugTracker/pipes/closedCount.pipe';
@@ -18,6 +19,7 @@ import { ClosedCountPipe } from './bugTracker/pipes/closedCount.pipe';
 import { BugOperationsService } from './bugTracker/services/bugOperations.service';
 import { BugStorageService } from './bugTracker/services/bugStorage.service';
 import { BugServerService } from './bugTracker/services/bugServer.service';
+import { GreeterService } from './greeter/greeter.service';
 
 
 
@@ -27,7 +29,8 @@ import { BugServerService } from './bugTracker/services/bugServer.service';
     BugTrackerComponent,
     ClosedCountPipe,
     BugStatsComponent,
-    BugEditComponent
+    BugEditComponent,
+    GreeterComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,9 @@ import { BugServerService } from './bugTracker/services/bugServer.service';
     UtilsModule,
     HttpModule
   ],
-  providers: [BugOperationsService, BugStorageService, BugServerService],
+  providers: [
+    { provide : BugOperationsService, useClass : BugOperationsService},
+    BugStorageService, BugServerService, GreeterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
